@@ -19,8 +19,20 @@
                 background-color: blue;
             }
 
-            ul.my-kids {
+            ul.my-kids > li {
                 background-color: green;
+            }
+
+            div.grandkids li {
+                background-color: red;
+            }
+
+            .add-border {
+                border: 1px solid black;
+            }
+
+            .add-background {
+                background-color: gold;
             }
         </style>
     </head>
@@ -34,6 +46,9 @@
                 <li><a href="#id">id</a></li>
                 <li><a href="#class">class</a></li>
                 <li><a href="#compound">compound</a></li>
+                <li><a href="#child">child</a></li>
+                <li><a href="#descendant">descendant</a></li>
+                <li><a href="#multiple">multiple</a></li>
             </ul>
         </nav> 
     </header>           
@@ -78,45 +93,87 @@
 
 
         <!-- New Version using compound <fieldset> -->
-            <fieldset>
-                <legend><a id="compound">compound</a></legend>
-                <p>Compound selectors allow us to use more than one selector for a set of rules. The selectors must be seperated by comas. </p>          
-                <p>Here's how the CSS is applied to the element:</p>
-                <pre><code>li.new-list{ 
-        background-color:blue;
-    }</code></pre>
+        <fieldset>
+            <legend><a id="compound">compound</a></legend>
+            <p>Compound selectors allow us to use more than one selector for a set of rules. The selectors must be seperated by comas. </p>          
+            <p>Here's how the CSS is applied to the element:</p>
+            <pre><code>li.new-list{ 
+    background-color:blue;
+}</code></pre>
     
     
-                <p>Here's what it looks like:</p>
-                <div id="new-div"> Im inside a div with a new-div</div>
-                <div>
-                    <ul>
-                        <li class="new-list"> I'm inside an li with a class of new-list</li>
-                        <li class="new-list"> I'm inside an li with a class of new-list</li>
-                        <li class="new-list"> I'm inside an li with a class of new-list</li>
-                    </ul>
-                </div>
-            </fieldset>
+            <p>Here's what it looks like:</p>
+            <div id="new-div"> Im inside a div with a new-div</div>
+            <div>
+                <ul>
+                    <li class="new-list"> I'm inside an li with a class of new-list</li>
+                    <li class="new-list"> I'm inside an li with a class of new-list</li>                        
+                    <li class="new-list"> I'm inside an li with a class of new-list</li>
+                </ul>
+             </div>
+        </fieldset>
 
-              <!-- New Version using child <fieldset> -->
-                <fieldset>
-                    <legend><a id="child">child</a></legend>
-                    <p>The child selector allow us to access the elements that are immidately inside the current element.</p>          
-                    <p>Here's how the CSS is applied to the element:</p>
-                    <pre><code>ul.my-kids{ 
-            background-color:green;
-        }</code></pre>
+        <!-- New Version using child <fieldset> -->
+        <fieldset>
+             <legend><a id="child">child</a></legend>
+            <p>The child selector allow us to access the elements that are immidately inside the current element.</p>          
+            <p>Here's how the CSS is applied to the element:</p>
+            <pre><code>ul.my-kids{ 
+    background-color:green;
+}</code></pre>
         
         
-                    <p>Here's what it looks like:</p>
-                    <div>
-                        <ul class="my-kids">
-                            <li> I'm inside an li with a class of my-kids</li>
-                            <li> I'm inside an li with a class of my-kids</li>
-                            <li> I'm inside an li with a class of my-kids</li>
-                        </ul>
-                    </div>
-                </fieldset>
+            <p>Here's what it looks like:</p>
+            <div>
+                 <ul class="my-kids">
+                    <li> I'm inside an li with a class of my-kids</li>
+                     <li> I'm inside an li with a class of my-kids</li>                         
+                     <li> I'm inside an li with a class of my-kids</li>
+                 </ul>
+            </div>
+        </fieldset>
+
+        <!-- New Version using grandkids <fieldset> -->
+        <fieldset>
+             <legend><a id="descendant">descendant</a></legend>
+             <p>The descendant selector allows us to hook to an element at any depth inside the current element.</p>
+            <p>Here's how the CSS is applied to the element:</p>
+            <pre><code>div.grandkids{
+    background-color: red;
+}</code></pre>
+              
+            <p>Here's what it looks like:</p>
+            <div class="grandkids">
+                <ul>
+                    <li>I'm inside of an li that is a descendant of a div with a class of grandkids.</li>
+                    <li>I'm inside of an li that is a descendant of a div with a class of grandkids.</li>
+                    <li>I'm inside of an li that is a descendant of a div with a class of grandkids.</li>
+                </ul>
+                </div>
+        </fieldset>
+
+        <!-- New Version using multiple <fieldset> -->
+        <fieldset>
+            <legend><a id="multiple">multiple classes</a></legend>
+            <p>We can apply multiple classes by placing them in the class attribute with a space between each.</p>
+            <p>Here is how you connect mutiple classes to an element.</p>
+            <pre><code>class="add-border add-background"</code></pre>
+            <p>Here's how the CSS is applied to the element:</p>
+            <pre><code>.add-background{
+    background-color: gold;
+}</code></pre>
+              
+            <p>Here's what it looks like:</p>
+            <div>
+                <ul>
+                    <li class="add-border add-background">I'm inside of an li with 2 classes </li>
+                    <li class="add-border add-background">I'm inside of an li with 2 classes </li>
+                    <li class="add-border add-background">I'm inside of an li with 2 classes </li>
+                </ul>
+            </div>
+         </fieldset>
+
+                          
 
         <footer class="page-footer">
             <p><small>&copy; 2023 by 
